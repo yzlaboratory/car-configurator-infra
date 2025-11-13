@@ -4,8 +4,8 @@
 # role for rds zugriff for 1 task
 
 # --- 1. ECS Cluster ---
-resource "aws_ecs_cluster" "main" {
-  name = "${var.project_name}-cluster"
+resource "aws_ecs_cluster" "staging" {
+  name = "${var.project_name}-staging-cluster"
 }
 
 # --- 2. Application Load Balancer (ALB) ---
@@ -43,7 +43,7 @@ resource "aws_lb_listener" "http" {
 
 # --- 3. ECS Task Definition (Fargate) ---
 resource "aws_ecs_task_definition" "catalog" {
-  family                   = "${var.project_name}-task"
+  family                   = "${var.project_name}-catalog-task"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = 256 # 0.25 vCPU
@@ -75,7 +75,7 @@ resource "aws_ecs_task_definition" "catalog" {
 }
 
 resource "aws_ecs_task_definition" "orders" {
-  family                   = "${var.project_name}-task"
+  family                   = "${var.project_name}-orders-task"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = 256 # 0.25 vCPU
@@ -107,7 +107,7 @@ resource "aws_ecs_task_definition" "orders" {
 }
 
 resource "aws_ecs_task_definition" "configs" {
-  family                   = "${var.project_name}-task"
+  family                   = "${var.project_name}-configs-task"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = 256 # 0.25 vCPU
@@ -146,8 +146,8 @@ resource "aws_cloudwatch_log_group" "main" {
 # --- 4. ECS Service ---
 # Dieser Service sorgt dafür, dass der Task läuft und verbindet ihn mit dem ALB
 resource "aws_ecs_service" "orders" {
-  name            = "${var.project_name}-api-orders"
-  cluster         = aws_ecs_cluster.main.id
+  name            = "${var.project_name}-staging-orders-ecs"
+  cluster         = aws_ecs_cluster.staging.id
   task_definition = aws_ecs_task_definition.orders.arn
   desired_count   = 1
   launch_type     = "FARGATE"
@@ -170,8 +170,8 @@ resource "aws_ecs_service" "orders" {
 # --- 4. ECS Service ---
 # Dieser Service sorgt dafür, dass der Task läuft und verbindet ihn mit dem ALB
 resource "aws_ecs_service" "catalog" {
-  name            = "${var.project_name}-api-catalog"
-  cluster         = aws_ecs_cluster.main.id
+  name            = "${var.project_name}-staging-catalog-ecsg"
+  cluster         = aws_ecs_cluster.staging.id
   task_definition = aws_ecs_task_definition.catalog.arn
   desired_count   = 1
   launch_type     = "FARGATE"
@@ -194,8 +194,8 @@ resource "aws_ecs_service" "catalog" {
 # --- 4. ECS Service ---
 # Dieser Service sorgt dafür, dass der Task läuft und verbindet ihn mit dem ALB
 resource "aws_ecs_service" "configs" {
-  name            = "${var.project_name}-api-configs"
-  cluster         = aws_ecs_cluster.main.id
+  name            = "${var.project_name}-staging-configs-ecs"
+  cluster         = aws_ecs_cluster.staging.id
   task_definition = aws_ecs_task_definition.configs.arn
   desired_count   = 1
   launch_type     = "FARGATE"

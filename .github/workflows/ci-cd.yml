@@ -1,0 +1,184 @@
+#use shared modules to reduce duplicate code after the fact
+
+name: "Terraform CI Pipeline"
+
+on:
+    pull_request:
+        branches:
+            - main
+    push:
+        branches:
+            - main
+            - development
+
+# --- OIDC Permissions ---
+# This is required for secure, keyless authentication to AWS.
+permissions:
+    id-token: write # Allows the pipeline to get an OIDC token from GitHub
+    contents: read # Allows checkout of the code
+    pull-requests: write # Allows the `plan` to be posted as a PR comment
+    actions: read # Allows the `apply_production` job to download the plan artifact
+
+env:
+    TF_VERSION: "latest" # Use the latest Terraform version
+    AWS_REGION: "eu-central-1" # Change to your AWS region
+    TF_WORKING_DIR_STAGING: "environments/staging"
+    TF_WORKING_DIR_PRODUCTION: "environments/production"
+
+jobs:
+    # --- Stage 1: Validate Code on Pull Request ---
+    validate:
+        name: "Validate"
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: "Checkout Code"
+              uses: actions/checkout@v4
+
+            - name: "Setup Terraform"
+              uses: hashicorp/setup-terraform@v3
+              with:
+                  terraform_version: ${{ env.TF_VERSION }}
+                  terraform_wrapper: false # We'll run commands directly
+
+            - name: "Check format"
+              run: terraform fmt --check --recursive -diff
+
+            - name: "Initialize"
+              # We run init with -backend=false because we don't need state for validation
+              run: |
+                  terraform -chdir=${{ env.TF_WORKING_DIR_STAGING }} init -backend=false
+                  terraform -chdir=${{ env.TF_WORKING_DIR_PRODUCTION }} init -backend=false
+
+            - name: "Validate"
+              run: |
+                  terraform -chdir=${{ env.TF_WORKING_DIR_STAGING }} validate
+                  terraform -chdir=${{ env.TF_WORKING_DIR_PRODUCTION }} validate
+
+            # use code ql code scanner here
+
+    plan_staging:
+        name: "Plan the changes for staging"
+        runs-on: ubuntu-latest
+        environment: staging
+        needs: validate
+        if: github.event_name == 'pull_request'
+
+        steps:
+            - name: "Checkout Code"
+              uses: actions/checkout@v4
+
+            - name: "Configure AWS Credentials (OIDC)"
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }} # Secret defined in GitHub
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: "Setup Terraform"
+              uses: hashicorp/setup-terraform@v3
+              with:
+                  terraform_version: ${{ env.TF_VERSION }}
+
+            - name: "Initialize"
+              id: init_staging
+              run: |
+                  terraform -chdir=${{ env.TF_WORKING_DIR_STAGING }} init \
+                    -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" \
+                    -backend-config="key=car-configurator.tfstate" \
+                    -backend-config="region=${{ env.AWS_REGION }}" \
+                    -backend-config="use_lockfile=true"
+
+            - name: "Plan"
+              id: plan_staging
+              run: terraform -chdir=${{ env.TF_WORKING_DIR_STAGING }} plan -no-color -out=staging.tfplan
+
+            - name: "Upload Plan Artifact"
+              uses: actions/upload-artifact@v4
+              with:
+                  name: staging-tfplan-artifact
+                  path: ${{ env.TF_WORKING_DIR_STAGING }}/staging.tfplan
+                  retention-days: 7
+
+            - name: "Post Plan to PR Comment"
+              uses: actions/github-script@v7
+              env:
+                  PLAN: "${{ steps.plan_staging.outputs.stdout }}"
+              with:
+                  script: |
+                      const output = `#### Terraform Plan (Staging) 🤖
+
+                      \`\`\`terraform
+                      ${process.env.PLAN}
+                      \`\`\`
+                      `;
+                      github.rest.issues.createComment({
+                        issue_number: context.issue.number,
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        body: output
+                      });
+
+    apply_staging:
+        name: "Apply to staging on merge"
+        runs-on: ubuntu-latest
+        environment: staging
+        needs: plan_staging
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+        steps:
+            - name: "Checkout Code"
+              uses: actions/checkout@v4
+
+            - name: "Configure AWS Credentials (OIDC)"
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: "Setup Terraform"
+              uses: hashicorp/setup-terraform@v3
+              with:
+                  terraform_version: ${{ env.TF_VERSION }}
+
+            - name: "Download Plan Artifact"
+              uses: actions/download-artifact@v4
+              with:
+                  name: staging-tfplan-artifact
+                  path: ${{ env.TF_WORKING_DIR_DIR_STAGING }}
+
+            - name: "Terraform Apply (Staging)"
+              run: terraform -chdir=${{ env.TF_WORKING_DIR_STAGING }} apply -auto-approve staging.tfplan
+
+    # --- Stage 4 (Part 1): Plan Production on Git Tag ---
+    plan_production:
+        name: "Stage 4.1: Plan Production (Tag)"
+        runs-on: ubuntu-latest
+        environment: production
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        needs: apply_staging
+        steps:
+            - name: "Checkout Code"
+              uses: actions/checkout@v4
+
+            - name: "Configure AWS Credentials (OIDC)"
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: "Setup Terraform"
+              uses: hashicorp/setup-terraform@v3
+              with:
+                  terraform_version: ${{ env.TF_VERSION }}
+
+            - name: "Terraform Init (Production)"
+              run: |
+                  terraform -chdir=${{ env.TF_WORKING_DIR_PRODUCTION }} init \
+                    -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" \
+                    -backend-config="key=production/terraform.tfstate" \
+                    -backend-config="region=${{ env.AWS_REGION }}" \
+                    -backend-config="use_lockfile=true"
+
+            - name: "Terraform Apply (Production)"
+              run: |
+                  terraform -chdir=${{ env.TF_WORKING_DIR_PRODUCTION }} apply -auto-approve"
