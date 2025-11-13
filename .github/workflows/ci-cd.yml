@@ -1,6 +1,6 @@
 #use shared modules to reduce duplicate code after the fact
 
-name: "Terraform CI Pipeline"
+name: "CI/CD"
 
 on:
     pull_request:
