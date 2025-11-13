@@ -57,7 +57,6 @@ jobs:
 
             # use code ql code scanner here
 
-    # --- Stage 2: Plan Staging on Pull Request ---
     plan_staging:
         name: "Plan the changes for staging"
         runs-on: ubuntu-latest
@@ -85,7 +84,7 @@ jobs:
               run: |
                   terraform -chdir=${{ env.TF_WORKING_DIR_STAGING }} init \
                     -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" \
-                    -backend-config="key=/terraform.tfstate" \
+                    -backend-config="key=car-configurator.tfstate" \
                     -backend-config="region=${{ env.AWS_REGION }}" \
                     -backend-config="use_lockfile=true"
 
@@ -119,7 +118,6 @@ jobs:
                         body: output
                       });
 
-    # --- Stage 3: Apply Staging on Merge to Main ---
     apply_staging:
         name: "Apply to staging on merge"
         runs-on: ubuntu-latest
@@ -157,7 +155,7 @@ jobs:
         runs-on: ubuntu-latest
         environment: production
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
+        needs: apply_staging
         steps:
             - name: "Checkout Code"
               uses: actions/checkout@v4
