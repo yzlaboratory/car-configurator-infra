@@ -144,7 +144,7 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                   name: staging-tfplan-artifact
-                  path: ${{ env.TF_WORKING_DIR_DIR_STAGING }}
+                  path: ${{ env.TF_WORKING_DIR_STAGING }}
 
             - name: "Terraform Apply (Staging)"
               run: terraform -chdir=${{ env.TF_WORKING_DIR_STAGING }} apply -auto-approve staging.tfplan
