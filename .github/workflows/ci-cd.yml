@@ -177,4 +177,4 @@ jobs:
 
             - name: "Terraform Apply (Production)"
               run: |
-                  terraform -chdir=${{ env.TF_WORKING_DIR_PRODUCTION }} apply -auto-approve"
+                  terraform -chdir=${{ env.TF_WORKING_DIR_PRODUCTION }} apply -auto-approve
