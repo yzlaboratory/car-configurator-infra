@@ -5,7 +5,7 @@
 
 # --- 1. ECS Cluster ---
 resource "aws_ecs_cluster" "staging" {
-  name = "${var.project_name}-staging-cluster"
+  name = "${var.project_name}-cluster"
 }
 
 # --- 2. Application Load Balancer (ALB) ---
@@ -146,7 +146,7 @@ resource "aws_cloudwatch_log_group" "main" {
 # --- 4. ECS Service ---
 # Dieser Service sorgt dafür, dass der Task läuft und verbindet ihn mit dem ALB
 resource "aws_ecs_service" "orders" {
-  name            = "${var.project_name}-staging-orders-ecs"
+  name            = "${var.project_name}-orders-ecs"
   cluster         = aws_ecs_cluster.staging.id
   task_definition = aws_ecs_task_definition.orders.arn
   desired_count   = 1
@@ -170,7 +170,7 @@ resource "aws_ecs_service" "orders" {
 # --- 4. ECS Service ---
 # Dieser Service sorgt dafür, dass der Task läuft und verbindet ihn mit dem ALB
 resource "aws_ecs_service" "catalog" {
-  name            = "${var.project_name}-staging-catalog-ecsg"
+  name            = "${var.project_name}-catalog-ecsg"
   cluster         = aws_ecs_cluster.staging.id
   task_definition = aws_ecs_task_definition.catalog.arn
   desired_count   = 1
@@ -194,7 +194,7 @@ resource "aws_ecs_service" "catalog" {
 # --- 4. ECS Service ---
 # Dieser Service sorgt dafür, dass der Task läuft und verbindet ihn mit dem ALB
 resource "aws_ecs_service" "configs" {
-  name            = "${var.project_name}-staging-configs-ecs"
+  name            = "${var.project_name}-configs-ecs"
   cluster         = aws_ecs_cluster.staging.id
   task_definition = aws_ecs_task_definition.configs.arn
   desired_count   = 1

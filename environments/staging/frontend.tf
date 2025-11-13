@@ -1,7 +1,7 @@
 # --- 1. S3 Bucket (Privat) ---
 # Der Bucket ist privat. Nur CloudFront kann darauf zugreifen.
 resource "aws_s3_bucket" "frontend" {
-  bucket = "${var.project_name}-frontend-bucket-staging" # S3-Namen müssen global eindeutig sein
+  bucket = "${var.project_name}-frontend-bucket" # S3-Namen müssen global eindeutig sein
 }
 
 # --- 2. CloudFront Origin Access Control (OAC) ---
