@@ -122,7 +122,7 @@ jobs:
         name: "Apply to staging on merge"
         runs-on: ubuntu-latest
         environment: staging
-        needs: plan_staging
+        needs: validate
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
         steps:
@@ -150,8 +150,8 @@ jobs:
               run: terraform -chdir=${{ env.TF_WORKING_DIR_STAGING }} apply -auto-approve staging.tfplan
 
     # --- Stage 4 (Part 1): Plan Production on Git Tag ---
-    plan_production:
-        name: "Stage 4.1: Plan Production (Tag)"
+    apply_production:
+        name: "Apply to Production after manual Approval"
         runs-on: ubuntu-latest
         environment: production
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
