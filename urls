@@ -1,0 +1,2 @@
+api_backend_url = "https://ccp2r3vus7.execute-api.eu-central-1.amazonaws.com"
+frontend_url = "https://dp3640vkn945q.cloudfront.net"

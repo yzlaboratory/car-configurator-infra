@@ -10,7 +10,7 @@ resource "aws_iam_role" "ecs_task_execution_role" {
         Principal = {
           Service = "ecs-tasks.amazonaws.com"
         }
-      }
+      },
     ]
   })
 }
@@ -50,4 +50,38 @@ resource "aws_iam_role_policy_attachment" "ecs_task_postgres_policy" {
   role       = aws_iam_role.ecs_task_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonRDSFullAccess"
   # In einer echten Produktion würden Sie dies auf die ARNs der Tabellen beschränken
+}
+
+resource "aws_iam_role_policy" "task_permissions1" {
+  name = "car-configurator_task_permissions"
+  role = aws_iam_role.ecs_task_role.name
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "iam:PassRole",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy" "task_permissions2" {
+  name = "car-configurator_task_permissions"
+  role = aws_iam_role.ecs_task_execution_role.name
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "iam:PassRole",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      }
+    ]
+  })
 }
