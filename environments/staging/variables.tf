@@ -30,8 +30,7 @@ variable "container_image_catalog" {
   description = "The Docker container image to deploy (e.g., from ECR)."
   type        = string
   # Sie würden hier Ihr ECR-Image eintragen:
-  # default = "<ihre-aws-account-id>.dkr.ecr.eu-central-1.amazonaws.com/mein-microservice:latest"
-  default = "public.ecr.aws/nginx/nginx:latest" # Ihr aktueller Platzhalter
+  default = "772161516556.dkr.ecr.eu-central-1.amazonaws.com/car-configurator/api-catalog:staging"
 }
 
 variable "container_port" {
