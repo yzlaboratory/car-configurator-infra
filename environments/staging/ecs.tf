@@ -170,7 +170,7 @@ resource "aws_ecs_service" "orders" {
 # --- 4. ECS Service ---
 # Dieser Service sorgt dafür, dass der Task läuft und verbindet ihn mit dem ALB
 resource "aws_ecs_service" "catalog" {
-  name            = "${var.project_name}-catalog-ecsg"
+  name            = "${var.project_name}-catalog-ecs"
   cluster         = aws_ecs_cluster.staging.id
   task_definition = aws_ecs_task_definition.catalog.arn
   desired_count   = 1
