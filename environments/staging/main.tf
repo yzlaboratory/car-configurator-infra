@@ -10,7 +10,7 @@ terraform {
 
   backend "s3" {
     bucket       = "car-configurator-state-bucket-staging"
-    key          = "terraform.tfstate"
+    key          = "car-configurator.tfstate"
     region       = "eu-central-1"
     use_lockfile = true
   }
