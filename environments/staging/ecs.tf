@@ -8,26 +8,12 @@ resource "aws_ecs_cluster" "staging" {
   name = "${var.project_name}-cluster"
 }
 
-# --- 2. Application Load Balancer (ALB) ---
-# Dieser sitzt vor Fargate und verteilt den Traffic
 resource "aws_lb" "main" {
   name               = "${var.project_name}-alb"
-  internal           = false
+  internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb.id]
-  subnets            = [aws_subnet.public_a.id, aws_subnet.public_b.id]
-}
-
-resource "aws_lb_target_group" "main" {
-  name        = "${var.project_name}-tg"
-  port        = var.container_port
-  protocol    = "HTTP"
-  vpc_id      = aws_vpc.main.id
-  target_type = "ip" # Erforderlich für Fargate
-
-  health_check {
-    path = "/"
-  }
+  subnets            = [aws_subnet.private_a.id, aws_subnet.private_b.id]
 }
 
 resource "aws_lb_listener" "http" {
@@ -36,11 +22,97 @@ resource "aws_lb_listener" "http" {
   protocol          = "HTTP"
 
   default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.main.arn
+    type = "fixed-response"
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "404: Not Found"
+      status_code  = 404
+    }
   }
 }
 
+resource "aws_lb_target_group" "catalog" {
+  name        = "${var.project_name}-1"
+  port        = var.container_port
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.main.id
+  target_type = "ip" # Erforderlich für Fargate
+
+  health_check {
+    path = "/actuator/health"
+  }
+}
+
+resource "aws_lb_target_group" "orders" {
+  name        = "${var.project_name}-3"
+  port        = var.container_port
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.main.id
+  target_type = "ip" # Erforderlich für Fargate
+
+  health_check {
+    path = "/actuator/health"
+  }
+}
+
+resource "aws_lb_target_group" "config" {
+  name        = "${var.project_name}-2"
+  port        = var.container_port
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.main.id
+  target_type = "ip" # Erforderlich für Fargate
+
+  health_check {
+    path = "/actuator/health"
+  }
+}
+
+resource "aws_lb_listener_rule" "config_rule" {
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 101
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.config.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/configs/*"]
+    }
+  }
+}
+
+resource "aws_lb_listener_rule" "catalog_rule" {
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.catalog.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/catalog/*"]
+    }
+  }
+}
+resource "aws_lb_listener_rule" "orders_rule" {
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 102
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.orders.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/orders/*"]
+    }
+  }
+}
 # --- 3. ECS Task Definition (Fargate) ---
 resource "aws_ecs_task_definition" "catalog" {
   family                   = "${var.project_name}-catalog-task"
@@ -49,7 +121,7 @@ resource "aws_ecs_task_definition" "catalog" {
   cpu                      = 256 # 0.25 vCPU
   memory                   = 512 # 0.5 GB
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-  task_role_arn            = aws_iam_role.ecs_task_role.arn # Für DynamoDB-Zugriff
+  task_role_arn            = aws_iam_role.ecs_task_role.arn
 
   container_definitions = jsonencode([
     {
@@ -62,6 +134,16 @@ resource "aws_ecs_task_definition" "catalog" {
           hostPort      = var.container_port
         }
       ]
+      "environment" : [
+        {
+          "name" : "AWS_REGION",
+          "value" : var.aws_region
+        },
+        {
+          "name" : "DYNAMODB_TABLE_NAME",
+          "value" : aws_dynamodb_table.catalog_table.name
+        }
+      ]
       logConfiguration = {
         logDriver = "awslogs"
         options = {
@@ -69,6 +151,19 @@ resource "aws_ecs_task_definition" "catalog" {
           "awslogs-region"        = var.aws_region
           "awslogs-stream-prefix" = var.project_name
         }
+      },
+      "healthCheck" : {
+        # This command is run inside the container.
+        # It must exit 0 for success or 1 for failure.
+        # This example pings a health endpoint.
+        "command" : [
+          "CMD-SHELL",
+          "curl -f http://localhost:${var.container_port}/actuator/health || exit 1"
+        ],
+        "interval" : 30,   # Time between checks (in seconds)
+        "timeout" : 5,     # Time to wait for a response
+        "retries" : 3,     # How many failures before marking as unhealthy
+        "startPeriod" : 60 # Grace period to allow the container to start
       }
     }
   ])
@@ -81,7 +176,7 @@ resource "aws_ecs_task_definition" "orders" {
   cpu                      = 256 # 0.25 vCPU
   memory                   = 512 # 0.5 GB
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-  task_role_arn            = aws_iam_role.ecs_task_role.arn # Für DynamoDB-Zugriff
+  task_role_arn            = aws_iam_role.ecs_task_role.arn
 
   container_definitions = jsonencode([
     {
@@ -101,6 +196,20 @@ resource "aws_ecs_task_definition" "orders" {
           "awslogs-region"        = var.aws_region
           "awslogs-stream-prefix" = var.project_name
         }
+      }
+
+      "healthCheck" : {
+        # This command is run inside the container.
+        # It must exit 0 for success or 1 for failure.
+        # This example pings a health endpoint.
+        "command" : [
+          "CMD-SHELL",
+          "curl -f http://localhost:${var.container_port}/actuator/health || exit 1"
+        ],
+        "interval" : 30,   # Time between checks (in seconds)
+        "timeout" : 5,     # Time to wait for a response
+        "retries" : 3,     # How many failures before marking as unhealthy
+        "startPeriod" : 60 # Grace period to allow the container to start
       }
     }
   ])
@@ -134,6 +243,29 @@ resource "aws_ecs_task_definition" "configs" {
           "awslogs-stream-prefix" = var.project_name
         }
       }
+      "environment" : [
+        {
+          "name" : "AWS_REGION",
+          "value" : var.aws_region
+        },
+        {
+          "name" : "DYNAMODB_TABLE_NAME",
+          "value" : aws_dynamodb_table.configs_table.name
+        }
+      ]
+      "healthCheck" : {
+        # This command is run inside the container.
+        # It must exit 0 for success or 1 for failure.
+        # This example pings a health endpoint.
+        "command" : [
+          "CMD-SHELL",
+          "curl -f http://localhost:${var.container_port}/actuator/health || exit 1"
+        ],
+        "interval" : 30,   # Time between checks (in seconds)
+        "timeout" : 5,     # Time to wait for a response
+        "retries" : 3,     # How many failures before marking as unhealthy
+        "startPeriod" : 60 # Grace period to allow the container to start
+      }
     }
   ])
 }
@@ -158,7 +290,7 @@ resource "aws_ecs_service" "orders" {
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.main.arn
+    target_group_arn = aws_lb_target_group.orders.arn
     container_name   = "${var.project_name}-api-orders"
     container_port   = var.container_port
   }
@@ -182,7 +314,7 @@ resource "aws_ecs_service" "catalog" {
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.main.arn
+    target_group_arn = aws_lb_target_group.catalog.arn
     container_name   = "${var.project_name}-api-catalog"
     container_port   = var.container_port
   }
@@ -206,7 +338,7 @@ resource "aws_ecs_service" "configs" {
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.main.arn
+    target_group_arn = aws_lb_target_group.config.arn
     container_name   = "${var.project_name}-api-configs"
     container_port   = var.container_port
   }
@@ -214,3 +346,4 @@ resource "aws_ecs_service" "configs" {
   # Stellt sicher, dass der ALB vorhanden ist, bevor der Service startet
   depends_on = [aws_lb_listener.http]
 }
+

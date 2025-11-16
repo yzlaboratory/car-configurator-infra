@@ -38,11 +38,48 @@ resource "aws_iam_role" "ecs_task_role" {
   })
 }
 
-# Erlaubt dem Container, auf DynamoDB zuzugreifen (für dieses Beispiel)
-resource "aws_iam_role_policy_attachment" "ecs_task_dynamodb_policy" {
-  role       = aws_iam_role.ecs_task_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
-  # In einer echten Produktion würden Sie dies auf die ARNs der Tabellen beschränken
+resource "aws_iam_role_policy" "dynamodb_catalog_policy" {
+  role = aws_iam_role.ecs_task_role.name
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "dynamodb:GetItem",
+          "dynamodb:PutItem",
+          "dynamodb:UpdateItem",
+          "dynamodb:DeleteItem",
+          "dynamodb:Query",
+          "dynamodb:Scan"
+        ],
+        Resource = aws_dynamodb_table.catalog_table.arn
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy" "dynamodb_configs_policy" {
+  role = aws_iam_role.ecs_task_role.name
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "dynamodb:GetItem",
+          "dynamodb:PutItem",
+          "dynamodb:UpdateItem",
+          "dynamodb:DeleteItem",
+          "dynamodb:Query",
+          "dynamodb:Scan"
+        ],
+        Resource = aws_dynamodb_table.configs_table.arn
+      }
+    ]
+  })
 }
 
 # Erlaubt dem Container, auf Postgres zuzugreifen (für dieses Beispiel)
