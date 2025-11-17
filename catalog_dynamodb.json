@@ -1,0 +1,527 @@
+{
+	"colors": {
+		"L": [
+			{
+				"M": {
+					"id": {
+						"S": "C-1"
+					},
+					"name": {
+						"S": "Weiss"
+					},
+					"price": {
+						"N": "0"
+					},
+					"hex": {
+						"S": "#000000"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "C-2"
+					},
+					"name": {
+						"S": "Grau"
+					},
+					"price": {
+						"N": "0"
+					},
+					"hex": {
+						"S": "#34495E"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "C-3"
+					},
+					"name": {
+						"S": "Schwarz"
+					},
+					"price": {
+						"N": "0"
+					},
+					"hex": {
+						"S": "#FFFFFF"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "C-4"
+					},
+					"name": {
+						"S": "Smaragd"
+					},
+					"price": {
+						"N": "3748.5"
+					},
+					"hex": {
+						"S": "#2ECC71"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "C-5"
+					},
+					"name": {
+						"S": "Rubin"
+					},
+					"price": {
+						"N": "3748.5"
+					},
+					"hex": {
+						"S": "#C0392B"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "C-6"
+					},
+					"name": {
+						"S": "Saphir"
+					},
+					"price": {
+						"N": "3748.5"
+					},
+					"hex": {
+						"S": "#3498DB"
+					}
+				}
+			}
+		]
+	},
+	"rims": {
+		"L": [
+			{
+				"M": {
+					"21 Zoll": {
+						"L": [
+							{
+								"M": {
+									"id": {
+										"S": "R-1"
+									},
+									"name": {
+										"S": "21 Zoll Alufelgen Klassik"
+									},
+									"tag": {
+										"S": "Serienausstattung"
+									},
+									"price": {
+										"N": "0"
+									},
+									"imageurl": {
+										"S": ""
+									}
+								}
+							},
+							{
+								"M": {
+									"id": {
+										"S": "R-2"
+									},
+									"name": {
+										"S": "21 Zoll Alufelgen Sport"
+									},
+									"tag": {
+										"S": "Exclusive Manufaktur"
+									},
+									"price": {
+										"N": "547.4"
+									},
+									"imageurl": {
+										"S": ""
+									}
+								}
+							},
+							{
+								"M": {
+									"id": {
+										"S": "R-3"
+									},
+									"name": {
+										"S": "21 Zoll Carbonfelgen R"
+									},
+									"tag": {
+										"S": "Exclusive Manufaktur"
+									},
+									"price": {
+										"N": "4057.9"
+									},
+									"imageurl": {
+										"S": ""
+									}
+								}
+							}
+						]
+					}
+				}
+			}
+		]
+	},
+	"motorization": {
+		"L": [
+			{
+				"M": {
+					"id": {
+						"S": "M-1"
+					},
+					"name": {
+						"S": "1.0 TSI 70 kW"
+					},
+					"ps": {
+						"N": "95"
+					},
+					"kw": {
+						"N": "70"
+					},
+					"transmission": {
+						"S": "5 - Schaltgetriebe"
+					},
+					"drive": {
+						"S": "Frontantrieb"
+					},
+					"fuel_type": {
+						"S": "Benzin"
+					},
+					"fuel_consumption_combined": {
+						"N": "5.3"
+					},
+					"fuel_consumption_combined_unit": {
+						"S": "l/100 km"
+					},
+					"co2_emissions_combined": {
+						"N": "121"
+					},
+					"co2_emissions_combined_unit": {
+						"S": "g/km"
+					},
+					"co2_class": {
+						"S": "D"
+					},
+					"max_speed": {
+						"S": "186"
+					},
+					"max_speed_unit": {
+						"S": "km/h"
+					},
+					"price": {
+						"N": "29230"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "M-2"
+					},
+					"name": {
+						"S": "1.0 TSI 85 kW"
+					},
+					"ps": {
+						"N": "116"
+					},
+					"kw": {
+						"N": "85"
+					},
+					"transmission": {
+						"S": "5 - Schaltgetriebe"
+					},
+					"drive": {
+						"S": "Frontantrieb"
+					},
+					"fuel_type": {
+						"S": "Benzin"
+					},
+					"fuel_consumption_combined": {
+						"N": "5.4"
+					},
+					"fuel_consumption_combined_unit": {
+						"S": "l/100 km"
+					},
+					"co2_emissions_combined": {
+						"N": "123"
+					},
+					"co2_emissions_combined_unit": {
+						"S": "g/km"
+					},
+					"co2_class": {
+						"S": "D"
+					},
+					"max_speed": {
+						"S": "198"
+					},
+					"max_speed_unit": {
+						"S": "km/h"
+					},
+					"price": {
+						"N": "30330"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "M-3"
+					},
+					"name": {
+						"S": "1.0 TSI 85 kW"
+					},
+					"ps": {
+						"N": "116"
+					},
+					"kw": {
+						"N": "85"
+					},
+					"transmission": {
+						"S": "7 - DSG"
+					},
+					"drive": {
+						"S": "Frontantrieb"
+					},
+					"fuel_type": {
+						"S": "Benzin"
+					},
+					"fuel_consumption_combined": {
+						"N": "5.5"
+					},
+					"fuel_consumption_combined_unit": {
+						"S": "l/100 km"
+					},
+					"co2_emissions_combined": {
+						"N": "126"
+					},
+					"co2_emissions_combined_unit": {
+						"S": "g/km"
+					},
+					"co2_class": {
+						"S": "D"
+					},
+					"max_speed": {
+						"S": "198"
+					},
+					"max_speed_unit": {
+						"S": "km/h"
+					},
+					"price": {
+						"N": "31780"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "M-4"
+					},
+					"name": {
+						"S": "1.5 TSI 110 kW"
+					},
+					"ps": {
+						"N": "150"
+					},
+					"kw": {
+						"N": "110"
+					},
+					"transmission": {
+						"S": "7 - DSG"
+					},
+					"drive": {
+						"S": "Frontantrieb"
+					},
+					"fuel_type": {
+						"S": "Benzin"
+					},
+					"fuel_consumption_combined": {
+						"N": "5.7"
+					},
+					"fuel_consumption_combined_unit": {
+						"S": "l/100 km"
+					},
+					"co2_emissions_combined": {
+						"N": "128"
+					},
+					"co2_emissions_combined_unit": {
+						"S": "g/km"
+					},
+					"co2_class": {
+						"S": "D"
+					},
+					"max_speed": {
+						"S": "216"
+					},
+					"max_speed_unit": {
+						"S": "km/h"
+					},
+					"price": {
+						"N": "33580"
+					}
+				}
+			}
+		]
+	},
+	"extras": {
+		"L": [
+			{
+				"M": {
+					"interior": {
+						"L": [
+							{
+								"M": {
+									"id": {
+										"S": "E-1"
+									},
+									"name": {
+										"S": "Ledersitze"
+									},
+									"imageurl": {
+										"S": ""
+									},
+									"price": {
+										"N": "1606.5"
+									}
+								}
+							},
+							{
+								"M": {
+									"id": {
+										"S": "E-2"
+									},
+									"name": {
+										"S": "Sitzheizqung"
+									},
+									"imageurl": {
+										"S": ""
+									},
+									"price": {
+										"N": "742"
+									}
+								}
+							},
+							{
+								"M": {
+									"id": {
+										"S": "E-3"
+									},
+									"name": {
+										"S": "Interieur-Paket Carbon matt"
+									},
+									"imageurl": {
+										"S": ""
+									},
+									"price": {
+										"N": "2103.5"
+									}
+								}
+							},
+							{
+								"M": {
+									"id": {
+										"S": "E-4"
+									},
+									"name": {
+										"S": "Sportlenkrad"
+									},
+									"imageurl": {
+										"S": ""
+									},
+									"price": {
+										"N": "1228"
+									}
+								}
+							}
+						]
+					}
+				}
+			},
+			{
+				"M": {
+					"infotainment": {
+						"L": [
+							{
+								"M": {
+									"id": {
+										"S": "E-5"
+									},
+									"name": {
+										"S": "High-End Surround Sound-System"
+									},
+									"imageurl": {
+										"S": ""
+									},
+									"price": {
+										"N": "3189.2"
+									}
+								}
+							}
+						]
+					}
+				}
+			},
+			{
+				"M": {
+					"exterior": {
+						"L": [
+							{
+								"M": {
+									"id": {
+										"S": "E-6"
+									},
+									"name": {
+										"S": "Dachträger"
+									},
+									"imageurl": {
+										"S": ""
+									},
+									"price": {
+										"N": "595"
+									}
+								}
+							},
+							{
+								"M": {
+									"id": {
+										"S": "E-7"
+									},
+									"name": {
+										"S": "Dachbox"
+									},
+									"imageurl": {
+										"S": ""
+									},
+									"price": {
+										"N": "1368.49"
+									}
+								}
+							},
+							{
+								"M": {
+									"id": {
+										"S": "E-8"
+									},
+									"name": {
+										"S": "Fahrradträger"
+									},
+									"imageurl": {
+										"S": ""
+									},
+									"price": {
+										"N": "285.59"
+									}
+								}
+							}
+						]
+					}
+				}
+			}
+		]
+	}
+}
