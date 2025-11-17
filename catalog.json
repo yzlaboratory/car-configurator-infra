@@ -1,0 +1,196 @@
+{
+	"colors": [
+		{
+			"id": "C-1",
+			"name": "Weiss",
+			"price": 0,
+			"hex": "#000000"
+		},
+		{
+			"id": "C-2",
+			"name": "Grau",
+			"price": 0,
+			"hex": "#34495E"
+		},
+		{
+			"id": "C-3",
+			"name": "Schwarz",
+			"price": 0,
+			"hex": "#FFFFFF"
+		},
+		{
+			"id": "C-4",
+			"name": "Smaragd",
+			"price": 3748.5,
+			"hex": "#2ECC71"
+		},
+		{
+			"id": "C-5",
+			"name": "Rubin",
+			"price": 3748.5,
+			"hex": "#C0392B"
+		},
+		{
+			"id": "C-6",
+			"name": "Saphir",
+			"price": 3748.5,
+			"hex": "#3498DB"
+		}
+	],
+	"rims": [
+		{
+			"id": "R-1",
+			"name": "21 Zoll Alufelgen Klassik",
+			"tag": "Serienausstattung",
+			"price": 0,
+			"image_url": "",
+			"size": "21 Zoll"
+		},
+		{
+			"id": "R-2",
+			"name": "21 Zoll Alufelgen Sport",
+			"tag": "Exclusive Manufaktur",
+			"price": 547.4,
+			"image_url": "",
+			"size": "21 Zoll"
+		},
+		{
+			"id": "R-3",
+			"name": "21 Zoll Carbonfelgen R",
+			"tag": "Exclusive Manufaktur",
+			"price": 4057.9,
+			"image_url": "",
+			"size": "21 Zoll"
+		}
+	],
+	"motorizations": [
+		{
+			"id": "M-1",
+			"name": "1.0 TSI 70 kW",
+			"ps": 95,
+			"kw": 70,
+			"transmission": "5 - Schaltgetriebe",
+			"drive": "Frontantrieb",
+			"fuel_type": "Benzin",
+			"fuel_consumption_combined": 5.3,
+			"fuel_consumption_combined_unit": "l/100 km",
+			"co2_emissions_combined": 121,
+			"co2_emissions_combined_unit": "g/km",
+			"co2_class": "D",
+			"max_speed": "186",
+			"max_speed_unit": "km/h",
+			"price": 29230
+		},
+		{
+			"id": "M-2",
+			"name": "1.0 TSI 85 kW",
+			"ps": 116,
+			"kw": 85,
+			"transmission": "5 - Schaltgetriebe",
+			"drive": "Frontantrieb",
+			"fuel_type": "Benzin",
+			"fuel_consumption_combined": 5.4,
+			"fuel_consumption_combined_unit": "l/100 km",
+			"co2_emissions_combined": 123,
+			"co2_emissions_combined_unit": "g/km",
+			"co2_class": "D",
+			"max_speed": "198",
+			"max_speed_unit": "km/h",
+			"price": 30330
+		},
+		{
+			"id": "M-3",
+			"name": "1.0 TSI 85 kW",
+			"ps": 116,
+			"kw": 85,
+			"transmission": "7 - DSG",
+			"drive": "Frontantrieb",
+			"fuel_type": "Benzin",
+			"fuel_consumption_combined": 5.5,
+			"fuel_consumption_combined_unit": "l/100 km",
+			"co2_emissions_combined": 126,
+			"co2_emissions_combined_unit": "g/km",
+			"co2_class": "D",
+			"max_speed": "198",
+			"max_speed_unit": "km/h",
+			"price": 31780
+		},
+		{
+			"id": "M-4",
+			"name": "1.5 TSI 110 kW",
+			"ps": 150,
+			"kw": 110,
+			"transmission": "7 - DSG",
+			"drive": "Frontantrieb",
+			"fuel_type": "Benzin",
+			"fuel_consumption_combined": 5.7,
+			"fuel_consumption_combined_unit": "l/100 km",
+			"co2_emissions_combined": 128,
+			"co2_emissions_combined_unit": "g/km",
+			"co2_class": "D",
+			"max_speed": "216",
+			"max_speed_unit": "km/h",
+			"price": 33580
+		}
+	],
+	"extras": [
+		{
+			"id": "E-1",
+			"name": "Ledersitze",
+			"image_url": "",
+			"price": 1606.5,
+			"type": "Interieur"
+		},
+		{
+			"id": "E-2",
+			"name": "Sitzheizqung",
+			"image_url": "",
+			"price": 742,
+			"type": "Interieur"
+		},
+		{
+			"id": "E-3",
+			"name": "Interieur-Paket Carbon matt",
+			"image_url": "",
+			"price": 2103.5,
+			"type": "Interieur"
+		},
+		{
+			"id": "E-4",
+			"name": "Sportlenkrad",
+			"image_url": "",
+			"price": 1228,
+			"type": "Interieur"
+		},
+
+		{
+			"id": "E-5",
+			"name": "High-End Surround Sound-System",
+			"image_url": "",
+			"price": 3189.2,
+			"type": "Infotainment"
+		},
+
+		{
+			"id": "E-6",
+			"name": "Dachträger",
+			"image_url": "",
+			"price": 595,
+			"type": "Exterieur"
+		},
+		{
+			"id": "E-7",
+			"name": "Dachbox",
+			"image_url": "",
+			"price": 1368.49,
+			"type": "Exterieur"
+		},
+		{
+			"id": "E-8",
+			"name": "Fahrradträger",
+			"image_url": "",
+			"price": 285.59,
+			"type": "Exterieur"
+		}
+	]
+}

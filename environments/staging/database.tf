@@ -26,17 +26,14 @@ resource "aws_db_instance" "orders" {
   skip_final_snapshot         = true # WICHTIG: Nur für Demos, nicht für Produktion
 }
 
-
 # --- 2. DynamoDB (2x Tables) ---
-
-# Tabelle 1 (z.B. für den "Catalog-Service")
 resource "aws_dynamodb_table" "catalog_table" {
   name         = "${var.project_name}-catalog"
   billing_mode = "PAY_PER_REQUEST" # Serverless-Modus
-  hash_key     = "partId"
+  hash_key     = "model_year"
 
   attribute {
-    name = "partId"
+    name = "model_year"
     type = "S" # S = String
   }
 
@@ -46,8 +43,7 @@ resource "aws_dynamodb_table" "catalog_table" {
   }
 }
 
-# Tabelle 2 (z.B. für den "Order-Service")
-resource "aws_dynamodb_table" "config_table" {
+resource "aws_dynamodb_table" "configs_table" {
   name         = "${var.project_name}-configs"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "configId"
