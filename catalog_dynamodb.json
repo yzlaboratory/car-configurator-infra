@@ -373,153 +373,153 @@
 		"L": [
 			{
 				"M": {
-					"interiors": {
-						"L": [
-							{
-								"M": {
-									"id": {
-										"S": "E-1"
-									},
-									"name": {
-										"S": "Ledersitze"
-									},
-									"image_url": {
-										"S": ""
-									},
-									"price": {
-										"N": "1606.5"
-									}
-								}
-							},
-							{
-								"M": {
-									"id": {
-										"S": "E-2"
-									},
-									"name": {
-										"S": "Sitzheizqung"
-									},
-									"image_url": {
-										"S": ""
-									},
-									"price": {
-										"N": "742"
-									}
-								}
-							},
-							{
-								"M": {
-									"id": {
-										"S": "E-3"
-									},
-									"name": {
-										"S": "Interieur-Paket Carbon matt"
-									},
-									"image_url": {
-										"S": ""
-									},
-									"price": {
-										"N": "2103.5"
-									}
-								}
-							},
-							{
-								"M": {
-									"id": {
-										"S": "E-4"
-									},
-									"name": {
-										"S": "Sportlenkrad"
-									},
-									"image_url": {
-										"S": ""
-									},
-									"price": {
-										"N": "1228"
-									}
-								}
-							}
-						]
+					"id": {
+						"S": "E-1"
+					},
+					"name": {
+						"S": "Ledersitze"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"price": {
+						"N": "1606.5"
+					},
+					"type": {
+						"S": "Interieur"
 					}
 				}
 			},
 			{
 				"M": {
-					"infotainments": {
-						"L": [
-							{
-								"M": {
-									"id": {
-										"S": "E-5"
-									},
-									"name": {
-										"S": "High-End Surround Sound-System"
-									},
-									"image_url": {
-										"S": ""
-									},
-									"price": {
-										"N": "3189.2"
-									}
-								}
-							}
-						]
+					"id": {
+						"S": "E-2"
+					},
+					"name": {
+						"S": "Sitzheizqung"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"price": {
+						"N": "742"
+					},
+					"type": {
+						"S": "Interieur"
 					}
 				}
 			},
 			{
 				"M": {
-					"exteriors": {
-						"L": [
-							{
-								"M": {
-									"id": {
-										"S": "E-6"
-									},
-									"name": {
-										"S": "Dachträger"
-									},
-									"image_url": {
-										"S": ""
-									},
-									"price": {
-										"N": "595"
-									}
-								}
-							},
-							{
-								"M": {
-									"id": {
-										"S": "E-7"
-									},
-									"name": {
-										"S": "Dachbox"
-									},
-									"image_url": {
-										"S": ""
-									},
-									"price": {
-										"N": "1368.49"
-									}
-								}
-							},
-							{
-								"M": {
-									"id": {
-										"S": "E-8"
-									},
-									"name": {
-										"S": "Fahrradträger"
-									},
-									"image_url": {
-										"S": ""
-									},
-									"price": {
-										"N": "285.59"
-									}
-								}
-							}
-						]
+					"id": {
+						"S": "E-3"
+					},
+					"name": {
+						"S": "Interieur-Paket Carbon matt"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"price": {
+						"N": "2103.5"
+					},
+					"type": {
+						"S": "Interieur"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "E-4"
+					},
+					"name": {
+						"S": "Sportlenkrad"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"price": {
+						"N": "1228"
+					},
+					"type": {
+						"S": "Interieur"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "E-5"
+					},
+					"name": {
+						"S": "High-End Surround Sound-System"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"price": {
+						"N": "3189.2"
+					},
+					"type": {
+						"S": "Infotainment"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "E-6"
+					},
+					"name": {
+						"S": "Dachträger"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"price": {
+						"N": "595"
+					},
+					"type": {
+						"S": "Exterieur"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "E-7"
+					},
+					"name": {
+						"S": "Dachbox"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"price": {
+						"N": "1368.49"
+					},
+					"type": {
+						"S": "Exterieur"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "E-8"
+					},
+					"name": {
+						"S": "Fahrradträger"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"price": {
+						"N": "285.59"
+					},
+					"type": {
+						"S": "Exterieur"
 					}
 				}
 			}

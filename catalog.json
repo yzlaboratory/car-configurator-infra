@@ -135,64 +135,62 @@
 	],
 	"extras": [
 		{
-			"interiors": [
-				{
-					"id": "E-1",
-					"name": "Ledersitze",
-					"image_url": "",
-					"price": 1606.5
-				},
-				{
-					"id": "E-2",
-					"name": "Sitzheizqung",
-					"image_url": "",
-					"price": 742
-				},
-				{
-					"id": "E-3",
-					"name": "Interieur-Paket Carbon matt",
-					"image_url": "",
-					"price": 2103.5
-				},
-				{
-					"id": "E-4",
-					"name": "Sportlenkrad",
-					"image_url": "",
-					"price": 1228
-				}
-			]
+			"id": "E-1",
+			"name": "Ledersitze",
+			"image_url": "",
+			"price": 1606.5,
+			"type": "Interieur"
 		},
 		{
-			"infotainments": [
-				{
-					"id": "E-5",
-					"name": "High-End Surround Sound-System",
-					"image_url": "",
-					"price": 3189.2
-				}
-			]
+			"id": "E-2",
+			"name": "Sitzheizqung",
+			"image_url": "",
+			"price": 742,
+			"type": "Interieur"
 		},
 		{
-			"exteriors": [
-				{
-					"id": "E-6",
-					"name": "Dachträger",
-					"image_url": "",
-					"price": 595
-				},
-				{
-					"id": "E-7",
-					"name": "Dachbox",
-					"image_url": "",
-					"price": 1368.49
-				},
-				{
-					"id": "E-8",
-					"name": "Fahrradträger",
-					"image_url": "",
-					"price": 285.59
-				}
-			]
+			"id": "E-3",
+			"name": "Interieur-Paket Carbon matt",
+			"image_url": "",
+			"price": 2103.5,
+			"type": "Interieur"
+		},
+		{
+			"id": "E-4",
+			"name": "Sportlenkrad",
+			"image_url": "",
+			"price": 1228,
+			"type": "Interieur"
+		},
+
+		{
+			"id": "E-5",
+			"name": "High-End Surround Sound-System",
+			"image_url": "",
+			"price": 3189.2,
+			"type": "Infotainment"
+		},
+
+		{
+			"id": "E-6",
+			"name": "Dachträger",
+			"image_url": "",
+			"price": 595,
+			"type": "Exterieur"
+		},
+		{
+			"id": "E-7",
+			"name": "Dachbox",
+			"image_url": "",
+			"price": 1368.49,
+			"type": "Exterieur"
+		},
+		{
+			"id": "E-8",
+			"name": "Fahrradträger",
+			"image_url": "",
+			"price": 285.59,
+			"type": "Exterieur"
 		}
 	]
 }
