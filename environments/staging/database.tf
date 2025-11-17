@@ -30,10 +30,10 @@ resource "aws_db_instance" "orders" {
 resource "aws_dynamodb_table" "catalog_table" {
   name         = "${var.project_name}-catalog"
   billing_mode = "PAY_PER_REQUEST" # Serverless-Modus
-  hash_key     = "model_year"
+  hash_key     = "modelId"
 
   attribute {
-    name = "model_year"
+    name = "modelId"
     type = "S" # S = String
   }
 

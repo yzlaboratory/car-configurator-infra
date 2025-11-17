@@ -1,6 +1,6 @@
 {
-	"config_id": "someuuid",
-	"model_year": "Astral X_2025",
+	"configId": "someuuid",
+	"modelId": "Astral X_2025",
 	"config": ["C-1", "M-3", "R-2", "E-1", "E-2", "E-5"],
 	"price": 213124.22
 }
