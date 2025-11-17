@@ -78,7 +78,7 @@ resource "aws_lb_listener_rule" "config_rule" {
 
   condition {
     path_pattern {
-      values = ["/configs/*"]
+      values = ["/configs/*", "/configs"]
     }
   }
 }
