@@ -39,32 +39,31 @@
 	],
 	"rims": [
 		{
-			"21 Zoll": [
-				{
-					"id": "R-1",
-					"name": "21 Zoll Alufelgen Klassik",
-					"tag": "Serienausstattung",
-					"price": 0,
-					"imageurl": ""
-				},
-				{
-					"id": "R-2",
-					"name": "21 Zoll Alufelgen Sport",
-					"tag": "Exclusive Manufaktur",
-					"price": 547.4,
-					"imageurl": ""
-				},
-				{
-					"id": "R-3",
-					"name": "21 Zoll Carbonfelgen R",
-					"tag": "Exclusive Manufaktur",
-					"price": 4057.9,
-					"imageurl": ""
-				}
-			]
+			"id": "R-1",
+			"name": "21 Zoll Alufelgen Klassik",
+			"tag": "Serienausstattung",
+			"price": 0,
+			"image_url": "",
+			"size": "21 Zoll"
+		},
+		{
+			"id": "R-2",
+			"name": "21 Zoll Alufelgen Sport",
+			"tag": "Exclusive Manufaktur",
+			"price": 547.4,
+			"image_url": "",
+			"size": "21 Zoll"
+		},
+		{
+			"id": "R-3",
+			"name": "21 Zoll Carbonfelgen R",
+			"tag": "Exclusive Manufaktur",
+			"price": 4057.9,
+			"image_url": "",
+			"size": "21 Zoll"
 		}
 	],
-	"motorization": [
+	"motorizations": [
 		{
 			"id": "M-1",
 			"name": "1.0 TSI 70 kW",
@@ -136,61 +135,61 @@
 	],
 	"extras": [
 		{
-			"interior": [
+			"interiors": [
 				{
 					"id": "E-1",
 					"name": "Ledersitze",
-					"imageurl": "",
+					"image_url": "",
 					"price": 1606.5
 				},
 				{
 					"id": "E-2",
 					"name": "Sitzheizqung",
-					"imageurl": "",
+					"image_url": "",
 					"price": 742
 				},
 				{
 					"id": "E-3",
 					"name": "Interieur-Paket Carbon matt",
-					"imageurl": "",
+					"image_url": "",
 					"price": 2103.5
 				},
 				{
 					"id": "E-4",
 					"name": "Sportlenkrad",
-					"imageurl": "",
+					"image_url": "",
 					"price": 1228
 				}
 			]
 		},
 		{
-			"infotainment": [
+			"infotainments": [
 				{
 					"id": "E-5",
 					"name": "High-End Surround Sound-System",
-					"imageurl": "",
+					"image_url": "",
 					"price": 3189.2
 				}
 			]
 		},
 		{
-			"exterior": [
+			"exteriors": [
 				{
 					"id": "E-6",
 					"name": "Dachträger",
-					"imageurl": "",
+					"image_url": "",
 					"price": 595
 				},
 				{
 					"id": "E-7",
 					"name": "Dachbox",
-					"imageurl": "",
+					"image_url": "",
 					"price": 1368.49
 				},
 				{
 					"id": "E-8",
 					"name": "Fahrradträger",
-					"imageurl": "",
+					"image_url": "",
 					"price": 285.59
 				}
 			]

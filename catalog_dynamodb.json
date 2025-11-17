@@ -103,72 +103,73 @@
 		"L": [
 			{
 				"M": {
-					"21 Zoll": {
-						"L": [
-							{
-								"M": {
-									"id": {
-										"S": "R-1"
-									},
-									"name": {
-										"S": "21 Zoll Alufelgen Klassik"
-									},
-									"tag": {
-										"S": "Serienausstattung"
-									},
-									"price": {
-										"N": "0"
-									},
-									"imageurl": {
-										"S": ""
-									}
-								}
-							},
-							{
-								"M": {
-									"id": {
-										"S": "R-2"
-									},
-									"name": {
-										"S": "21 Zoll Alufelgen Sport"
-									},
-									"tag": {
-										"S": "Exclusive Manufaktur"
-									},
-									"price": {
-										"N": "547.4"
-									},
-									"imageurl": {
-										"S": ""
-									}
-								}
-							},
-							{
-								"M": {
-									"id": {
-										"S": "R-3"
-									},
-									"name": {
-										"S": "21 Zoll Carbonfelgen R"
-									},
-									"tag": {
-										"S": "Exclusive Manufaktur"
-									},
-									"price": {
-										"N": "4057.9"
-									},
-									"imageurl": {
-										"S": ""
-									}
-								}
-							}
-						]
+					"id": {
+						"S": "R-1"
+					},
+					"name": {
+						"S": "21 Zoll Alufelgen Klassik"
+					},
+					"tag": {
+						"S": "Serienausstattung"
+					},
+					"price": {
+						"N": "0"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"size": {
+						"S": "21 Zoll"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "R-2"
+					},
+					"name": {
+						"S": "21 Zoll Alufelgen Sport"
+					},
+					"tag": {
+						"S": "Exclusive Manufaktur"
+					},
+					"price": {
+						"N": "547.4"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"size": {
+						"S": "21 Zoll"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "R-3"
+					},
+					"name": {
+						"S": "21 Zoll Carbonfelgen R"
+					},
+					"tag": {
+						"S": "Exclusive Manufaktur"
+					},
+					"price": {
+						"N": "4057.9"
+					},
+					"image_url": {
+						"S": ""
+					},
+					"size": {
+						"S": "21 Zoll"
 					}
 				}
 			}
 		]
 	},
-	"motorization": {
+	"motorizations": {
 		"L": [
 			{
 				"M": {
@@ -372,7 +373,7 @@
 		"L": [
 			{
 				"M": {
-					"interior": {
+					"interiors": {
 						"L": [
 							{
 								"M": {
@@ -382,7 +383,7 @@
 									"name": {
 										"S": "Ledersitze"
 									},
-									"imageurl": {
+									"image_url": {
 										"S": ""
 									},
 									"price": {
@@ -398,7 +399,7 @@
 									"name": {
 										"S": "Sitzheizqung"
 									},
-									"imageurl": {
+									"image_url": {
 										"S": ""
 									},
 									"price": {
@@ -414,7 +415,7 @@
 									"name": {
 										"S": "Interieur-Paket Carbon matt"
 									},
-									"imageurl": {
+									"image_url": {
 										"S": ""
 									},
 									"price": {
@@ -430,7 +431,7 @@
 									"name": {
 										"S": "Sportlenkrad"
 									},
-									"imageurl": {
+									"image_url": {
 										"S": ""
 									},
 									"price": {
@@ -444,7 +445,7 @@
 			},
 			{
 				"M": {
-					"infotainment": {
+					"infotainments": {
 						"L": [
 							{
 								"M": {
@@ -454,7 +455,7 @@
 									"name": {
 										"S": "High-End Surround Sound-System"
 									},
-									"imageurl": {
+									"image_url": {
 										"S": ""
 									},
 									"price": {
@@ -468,7 +469,7 @@
 			},
 			{
 				"M": {
-					"exterior": {
+					"exteriors": {
 						"L": [
 							{
 								"M": {
@@ -478,7 +479,7 @@
 									"name": {
 										"S": "Dachträger"
 									},
-									"imageurl": {
+									"image_url": {
 										"S": ""
 									},
 									"price": {
@@ -494,7 +495,7 @@
 									"name": {
 										"S": "Dachbox"
 									},
-									"imageurl": {
+									"image_url": {
 										"S": ""
 									},
 									"price": {
@@ -510,7 +511,7 @@
 									"name": {
 										"S": "Fahrradträger"
 									},
-									"imageurl": {
+									"image_url": {
 										"S": ""
 									},
 									"price": {
