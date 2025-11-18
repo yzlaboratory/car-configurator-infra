@@ -6,9 +6,6 @@
 		"L": [
 			{
 				"M": {
-					"hex": {
-						"S": "#FFFFFF"
-					},
 					"id": {
 						"S": "C-1"
 					},
@@ -17,14 +14,14 @@
 					},
 					"price": {
 						"N": "0"
+					},
+					"hex": {
+						"S": "#000000"
 					}
 				}
 			},
 			{
 				"M": {
-					"hex": {
-						"S": "#34495E"
-					},
 					"id": {
 						"S": "C-2"
 					},
@@ -33,14 +30,14 @@
 					},
 					"price": {
 						"N": "0"
+					},
+					"hex": {
+						"S": "#34495E"
 					}
 				}
 			},
 			{
 				"M": {
-					"hex": {
-						"S": "#000000"
-					},
 					"id": {
 						"S": "C-3"
 					},
@@ -49,14 +46,14 @@
 					},
 					"price": {
 						"N": "0"
+					},
+					"hex": {
+						"S": "#FFFFFF"
 					}
 				}
 			},
 			{
 				"M": {
-					"hex": {
-						"S": "#2ECC71"
-					},
 					"id": {
 						"S": "C-4"
 					},
@@ -65,14 +62,14 @@
 					},
 					"price": {
 						"N": "3748.5"
+					},
+					"hex": {
+						"S": "#2ECC71"
 					}
 				}
 			},
 			{
 				"M": {
-					"hex": {
-						"S": "#C0392B"
-					},
 					"id": {
 						"S": "C-5"
 					},
@@ -81,14 +78,14 @@
 					},
 					"price": {
 						"N": "3748.5"
+					},
+					"hex": {
+						"S": "#C0392B"
 					}
 				}
 			},
 			{
 				"M": {
-					"hex": {
-						"S": "#3498DB"
-					},
 					"id": {
 						"S": "C-6"
 					},
@@ -97,6 +94,279 @@
 					},
 					"price": {
 						"N": "3748.5"
+					},
+					"hex": {
+						"S": "#3498DB"
+					}
+				}
+			}
+		]
+	},
+	"rims": {
+		"L": [
+			{
+				"M": {
+					"id": {
+						"S": "R-1"
+					},
+					"name": {
+						"S": "21 Zoll Alufelgen Klassik"
+					},
+					"tag": {
+						"S": "Serienausstattung"
+					},
+					"price": {
+						"N": "0"
+					},
+					"imageUrl": {
+						"S": ""
+					},
+					"size": {
+						"S": "21 Zoll"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "R-2"
+					},
+					"name": {
+						"S": "21 Zoll Alufelgen Sport"
+					},
+					"tag": {
+						"S": "Exclusive Manufaktur"
+					},
+					"price": {
+						"N": "547.4"
+					},
+					"imageUrl": {
+						"S": ""
+					},
+					"size": {
+						"S": "21 Zoll"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "R-3"
+					},
+					"name": {
+						"S": "21 Zoll Carbonfelgen R"
+					},
+					"tag": {
+						"S": "Exclusive Manufaktur"
+					},
+					"price": {
+						"N": "4057.9"
+					},
+					"imageUrl": {
+						"S": ""
+					},
+					"size": {
+						"S": "21 Zoll"
+					}
+				}
+			}
+		]
+	},
+	"motorizations": {
+		"L": [
+			{
+				"M": {
+					"id": {
+						"S": "M-1"
+					},
+					"name": {
+						"S": "1.0 TSI 70 kW"
+					},
+					"ps": {
+						"N": "95"
+					},
+					"kw": {
+						"N": "70"
+					},
+					"transmission": {
+						"S": "5 - Schaltgetriebe"
+					},
+					"drive": {
+						"S": "Frontantrieb"
+					},
+					"fuelType": {
+						"S": "Benzin"
+					},
+					"fuelConsumptionCombined": {
+						"N": "5.3"
+					},
+					"fuelConsumptionCombinedUnit": {
+						"S": "l/100 km"
+					},
+					"co2EmissionsCombined": {
+						"N": "121"
+					},
+					"co2EmissionsCombinedUnit": {
+						"S": "g/km"
+					},
+					"co2Class": {
+						"S": "D"
+					},
+					"maxSpeed": {
+						"S": "186"
+					},
+					"maxSpeedUnit": {
+						"S": "km/h"
+					},
+					"price": {
+						"N": "29230"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "M-2"
+					},
+					"name": {
+						"S": "1.0 TSI 85 kW"
+					},
+					"ps": {
+						"N": "116"
+					},
+					"kw": {
+						"N": "85"
+					},
+					"transmission": {
+						"S": "5 - Schaltgetriebe"
+					},
+					"drive": {
+						"S": "Frontantrieb"
+					},
+					"fuelType": {
+						"S": "Benzin"
+					},
+					"fuelConsumptionCombined": {
+						"N": "5.4"
+					},
+					"fuelConsumptionCombinedUnit": {
+						"S": "l/100 km"
+					},
+					"co2EmissionsCombined": {
+						"N": "123"
+					},
+					"co2EmissionsCombinedUnit": {
+						"S": "g/km"
+					},
+					"co2Class": {
+						"S": "D"
+					},
+					"maxSpeed": {
+						"S": "198"
+					},
+					"maxSpeedUnit": {
+						"S": "km/h"
+					},
+					"price": {
+						"N": "30330"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "M-3"
+					},
+					"name": {
+						"S": "1.0 TSI 85 kW"
+					},
+					"ps": {
+						"N": "116"
+					},
+					"kw": {
+						"N": "85"
+					},
+					"transmission": {
+						"S": "7 - DSG"
+					},
+					"drive": {
+						"S": "Frontantrieb"
+					},
+					"fuelType": {
+						"S": "Benzin"
+					},
+					"fuelConsumptionCombined": {
+						"N": "5.5"
+					},
+					"fuelConsumptionCombinedUnit": {
+						"S": "l/100 km"
+					},
+					"co2EmissionsCombined": {
+						"N": "126"
+					},
+					"co2EmissionsCombinedUnit": {
+						"S": "g/km"
+					},
+					"co2Class": {
+						"S": "D"
+					},
+					"maxSpeed": {
+						"S": "198"
+					},
+					"maxSpeedUnit": {
+						"S": "km/h"
+					},
+					"price": {
+						"N": "31780"
+					}
+				}
+			},
+			{
+				"M": {
+					"id": {
+						"S": "M-4"
+					},
+					"name": {
+						"S": "1.5 TSI 110 kW"
+					},
+					"ps": {
+						"N": "150"
+					},
+					"kw": {
+						"N": "110"
+					},
+					"transmission": {
+						"S": "7 - DSG"
+					},
+					"drive": {
+						"S": "Frontantrieb"
+					},
+					"fuelType": {
+						"S": "Benzin"
+					},
+					"fuelConsumptionCombined": {
+						"N": "5.7"
+					},
+					"fuelConsumptionCombinedUnit": {
+						"S": "l/100 km"
+					},
+					"co2EmissionsCombined": {
+						"N": "128"
+					},
+					"co2EmissionsCombinedUnit": {
+						"S": "g/km"
+					},
+					"co2Class": {
+						"S": "D"
+					},
+					"maxSpeed": {
+						"S": "216"
+					},
+					"maxSpeedUnit": {
+						"S": "km/h"
+					},
+					"price": {
+						"N": "33580"
 					}
 				}
 			}
@@ -109,11 +379,11 @@
 					"id": {
 						"S": "E-1"
 					},
-					"image_url": {
-						"S": ""
-					},
 					"name": {
 						"S": "Ledersitze"
+					},
+					"imageUrl": {
+						"S": ""
 					},
 					"price": {
 						"N": "1606.5"
@@ -128,11 +398,11 @@
 					"id": {
 						"S": "E-2"
 					},
-					"image_url": {
-						"S": ""
-					},
 					"name": {
 						"S": "Sitzheizqung"
+					},
+					"imageUrl": {
+						"S": ""
 					},
 					"price": {
 						"N": "742"
@@ -147,11 +417,11 @@
 					"id": {
 						"S": "E-3"
 					},
-					"image_url": {
-						"S": ""
-					},
 					"name": {
 						"S": "Interieur-Paket Carbon matt"
+					},
+					"imageUrl": {
+						"S": ""
 					},
 					"price": {
 						"N": "2103.5"
@@ -166,11 +436,11 @@
 					"id": {
 						"S": "E-4"
 					},
-					"image_url": {
-						"S": ""
-					},
 					"name": {
 						"S": "Sportlenkrad"
+					},
+					"imageUrl": {
+						"S": ""
 					},
 					"price": {
 						"N": "1228"
@@ -185,11 +455,11 @@
 					"id": {
 						"S": "E-5"
 					},
-					"image_url": {
-						"S": ""
-					},
 					"name": {
 						"S": "High-End Surround Sound-System"
+					},
+					"imageUrl": {
+						"S": ""
 					},
 					"price": {
 						"N": "3189.2"
@@ -204,11 +474,11 @@
 					"id": {
 						"S": "E-6"
 					},
-					"image_url": {
-						"S": ""
-					},
 					"name": {
 						"S": "Dachträger"
+					},
+					"imageUrl": {
+						"S": ""
 					},
 					"price": {
 						"N": "595"
@@ -223,11 +493,11 @@
 					"id": {
 						"S": "E-7"
 					},
-					"image_url": {
-						"S": ""
-					},
 					"name": {
 						"S": "Dachbox"
+					},
+					"imageUrl": {
+						"S": ""
 					},
 					"price": {
 						"N": "1368.49"
@@ -242,287 +512,17 @@
 					"id": {
 						"S": "E-8"
 					},
-					"image_url": {
-						"S": ""
-					},
 					"name": {
 						"S": "Fahrradträger"
+					},
+					"imageUrl": {
+						"S": ""
 					},
 					"price": {
 						"N": "285.59"
 					},
 					"type": {
 						"S": "Exterieur"
-					}
-				}
-			}
-		]
-	},
-	"motorizations": {
-		"L": [
-			{
-				"M": {
-					"co2_class": {
-						"S": "D"
-					},
-					"co2_emissions_combined": {
-						"N": "121"
-					},
-					"co2_emissions_combined_unit": {
-						"S": "g/km"
-					},
-					"drive": {
-						"S": "Frontantrieb"
-					},
-					"fuel_consumption_combined": {
-						"N": "5.3"
-					},
-					"fuel_consumption_combined_unit": {
-						"S": "l/100 km"
-					},
-					"fuel_type": {
-						"S": "Benzin"
-					},
-					"id": {
-						"S": "M-1"
-					},
-					"kw": {
-						"N": "70"
-					},
-					"max_speed": {
-						"S": "186"
-					},
-					"max_speed_unit": {
-						"S": "km/h"
-					},
-					"name": {
-						"S": "1.0 TSI 70 kW"
-					},
-					"price": {
-						"N": "29230"
-					},
-					"ps": {
-						"N": "95"
-					},
-					"transmission": {
-						"S": "5 - Schaltgetriebe"
-					}
-				}
-			},
-			{
-				"M": {
-					"co2_class": {
-						"S": "D"
-					},
-					"co2_emissions_combined": {
-						"N": "123"
-					},
-					"co2_emissions_combined_unit": {
-						"S": "g/km"
-					},
-					"drive": {
-						"S": "Frontantrieb"
-					},
-					"fuel_consumption_combined": {
-						"N": "5.4"
-					},
-					"fuel_consumption_combined_unit": {
-						"S": "l/100 km"
-					},
-					"fuel_type": {
-						"S": "Benzin"
-					},
-					"id": {
-						"S": "M-2"
-					},
-					"kw": {
-						"N": "85"
-					},
-					"max_speed": {
-						"S": "198"
-					},
-					"max_speed_unit": {
-						"S": "km/h"
-					},
-					"name": {
-						"S": "1.0 TSI 85 kW"
-					},
-					"price": {
-						"N": "30330"
-					},
-					"ps": {
-						"N": "116"
-					},
-					"transmission": {
-						"S": "5 - Schaltgetriebe"
-					}
-				}
-			},
-			{
-				"M": {
-					"co2_class": {
-						"S": "D"
-					},
-					"co2_emissions_combined": {
-						"N": "126"
-					},
-					"co2_emissions_combined_unit": {
-						"S": "g/km"
-					},
-					"drive": {
-						"S": "Frontantrieb"
-					},
-					"fuel_consumption_combined": {
-						"N": "5.5"
-					},
-					"fuel_consumption_combined_unit": {
-						"S": "l/100 km"
-					},
-					"fuel_type": {
-						"S": "Benzin"
-					},
-					"id": {
-						"S": "M-3"
-					},
-					"kw": {
-						"N": "85"
-					},
-					"max_speed": {
-						"S": "198"
-					},
-					"max_speed_unit": {
-						"S": "km/h"
-					},
-					"name": {
-						"S": "1.0 TSI 85 kW"
-					},
-					"price": {
-						"N": "31780"
-					},
-					"ps": {
-						"N": "116"
-					},
-					"transmission": {
-						"S": "7 - DSG"
-					}
-				}
-			},
-			{
-				"M": {
-					"co2_class": {
-						"S": "D"
-					},
-					"co2_emissions_combined": {
-						"N": "128"
-					},
-					"co2_emissions_combined_unit": {
-						"S": "g/km"
-					},
-					"drive": {
-						"S": "Frontantrieb"
-					},
-					"fuel_consumption_combined": {
-						"N": "5.7"
-					},
-					"fuel_consumption_combined_unit": {
-						"S": "l/100 km"
-					},
-					"fuel_type": {
-						"S": "Benzin"
-					},
-					"id": {
-						"S": "M-4"
-					},
-					"kw": {
-						"N": "110"
-					},
-					"max_speed": {
-						"S": "216"
-					},
-					"max_speed_unit": {
-						"S": "km/h"
-					},
-					"name": {
-						"S": "1.5 TSI 110 kW"
-					},
-					"price": {
-						"N": "33580"
-					},
-					"ps": {
-						"N": "150"
-					},
-					"transmission": {
-						"S": "7 - DSG"
-					}
-				}
-			}
-		]
-	},
-	"rims": {
-		"L": [
-			{
-				"M": {
-					"id": {
-						"S": "R-1"
-					},
-					"image_url": {
-						"S": ""
-					},
-					"name": {
-						"S": "21 Zoll Alufelgen Klassik"
-					},
-					"price": {
-						"N": "0"
-					},
-					"size": {
-						"S": "21 Zoll"
-					},
-					"tag": {
-						"S": "Serienausstattung"
-					}
-				}
-			},
-			{
-				"M": {
-					"id": {
-						"S": "R-2"
-					},
-					"image_url": {
-						"S": ""
-					},
-					"name": {
-						"S": "21 Zoll Alufelgen Sport"
-					},
-					"price": {
-						"N": "547.4"
-					},
-					"size": {
-						"S": "21 Zoll"
-					},
-					"tag": {
-						"S": "Exclusive Manufaktur"
-					}
-				}
-			},
-			{
-				"M": {
-					"id": {
-						"S": "R-3"
-					},
-					"image_url": {
-						"S": ""
-					},
-					"name": {
-						"S": "21 Zoll Carbonfelgen R"
-					},
-					"price": {
-						"N": "4057.9"
-					},
-					"size": {
-						"S": "21 Zoll"
-					},
-					"tag": {
-						"S": "Exclusive Manufaktur"
 					}
 				}
 			}

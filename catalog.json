@@ -1,4 +1,5 @@
 {
+	"modelId": "Astral X_2025",
 	"colors": [
 		{
 			"id": "C-1",
@@ -43,7 +44,7 @@
 			"name": "21 Zoll Alufelgen Klassik",
 			"tag": "Serienausstattung",
 			"price": 0,
-			"image_url": "",
+			"imageUrl": "",
 			"size": "21 Zoll"
 		},
 		{
@@ -51,7 +52,7 @@
 			"name": "21 Zoll Alufelgen Sport",
 			"tag": "Exclusive Manufaktur",
 			"price": 547.4,
-			"image_url": "",
+			"imageUrl": "",
 			"size": "21 Zoll"
 		},
 		{
@@ -59,7 +60,7 @@
 			"name": "21 Zoll Carbonfelgen R",
 			"tag": "Exclusive Manufaktur",
 			"price": 4057.9,
-			"image_url": "",
+			"imageUrl": "",
 			"size": "21 Zoll"
 		}
 	],
@@ -71,14 +72,14 @@
 			"kw": 70,
 			"transmission": "5 - Schaltgetriebe",
 			"drive": "Frontantrieb",
-			"fuel_type": "Benzin",
-			"fuel_consumption_combined": 5.3,
-			"fuel_consumption_combined_unit": "l/100 km",
-			"co2_emissions_combined": 121,
-			"co2_emissions_combined_unit": "g/km",
-			"co2_class": "D",
-			"max_speed": "186",
-			"max_speed_unit": "km/h",
+			"fuelType": "Benzin",
+			"fuelConsumptionCombined": 5.3,
+			"fuelConsumptionCombinedUnit": "l/100 km",
+			"co2EmissionsCombined": 121,
+			"co2EmissionsCombinedUnit": "g/km",
+			"co2Class": "D",
+			"maxSpeed": "186",
+			"maxSpeedUnit": "km/h",
 			"price": 29230
 		},
 		{
@@ -88,14 +89,14 @@
 			"kw": 85,
 			"transmission": "5 - Schaltgetriebe",
 			"drive": "Frontantrieb",
-			"fuel_type": "Benzin",
-			"fuel_consumption_combined": 5.4,
-			"fuel_consumption_combined_unit": "l/100 km",
-			"co2_emissions_combined": 123,
-			"co2_emissions_combined_unit": "g/km",
-			"co2_class": "D",
-			"max_speed": "198",
-			"max_speed_unit": "km/h",
+			"fuelType": "Benzin",
+			"fuelConsumptionCombined": 5.4,
+			"fuelConsumptionCombinedUnit": "l/100 km",
+			"co2EmissionsCombined": 123,
+			"co2EmissionsCombinedUnit": "g/km",
+			"co2Class": "D",
+			"maxSpeed": "198",
+			"maxSpeedUnit": "km/h",
 			"price": 30330
 		},
 		{
@@ -105,14 +106,14 @@
 			"kw": 85,
 			"transmission": "7 - DSG",
 			"drive": "Frontantrieb",
-			"fuel_type": "Benzin",
-			"fuel_consumption_combined": 5.5,
-			"fuel_consumption_combined_unit": "l/100 km",
-			"co2_emissions_combined": 126,
-			"co2_emissions_combined_unit": "g/km",
-			"co2_class": "D",
-			"max_speed": "198",
-			"max_speed_unit": "km/h",
+			"fuelType": "Benzin",
+			"fuelConsumptionCombined": 5.5,
+			"fuelConsumptionCombinedUnit": "l/100 km",
+			"co2EmissionsCombined": 126,
+			"co2EmissionsCombinedUnit": "g/km",
+			"co2Class": "D",
+			"maxSpeed": "198",
+			"maxSpeedUnit": "km/h",
 			"price": 31780
 		},
 		{
@@ -122,14 +123,14 @@
 			"kw": 110,
 			"transmission": "7 - DSG",
 			"drive": "Frontantrieb",
-			"fuel_type": "Benzin",
-			"fuel_consumption_combined": 5.7,
-			"fuel_consumption_combined_unit": "l/100 km",
-			"co2_emissions_combined": 128,
-			"co2_emissions_combined_unit": "g/km",
-			"co2_class": "D",
-			"max_speed": "216",
-			"max_speed_unit": "km/h",
+			"fuelType": "Benzin",
+			"fuelConsumptionCombined": 5.7,
+			"fuelConsumptionCombinedUnit": "l/100 km",
+			"co2EmissionsCombined": 128,
+			"co2EmissionsCombinedUnit": "g/km",
+			"co2Class": "D",
+			"maxSpeed": "216",
+			"maxSpeedUnit": "km/h",
 			"price": 33580
 		}
 	],
@@ -137,28 +138,28 @@
 		{
 			"id": "E-1",
 			"name": "Ledersitze",
-			"image_url": "",
+			"imageUrl": "",
 			"price": 1606.5,
 			"type": "Interieur"
 		},
 		{
 			"id": "E-2",
 			"name": "Sitzheizqung",
-			"image_url": "",
+			"imageUrl": "",
 			"price": 742,
 			"type": "Interieur"
 		},
 		{
 			"id": "E-3",
 			"name": "Interieur-Paket Carbon matt",
-			"image_url": "",
+			"imageUrl": "",
 			"price": 2103.5,
 			"type": "Interieur"
 		},
 		{
 			"id": "E-4",
 			"name": "Sportlenkrad",
-			"image_url": "",
+			"imageUrl": "",
 			"price": 1228,
 			"type": "Interieur"
 		},
@@ -166,7 +167,7 @@
 		{
 			"id": "E-5",
 			"name": "High-End Surround Sound-System",
-			"image_url": "",
+			"imageUrl": "",
 			"price": 3189.2,
 			"type": "Infotainment"
 		},
@@ -174,21 +175,21 @@
 		{
 			"id": "E-6",
 			"name": "Dachträger",
-			"image_url": "",
+			"imageUrl": "",
 			"price": 595,
 			"type": "Exterieur"
 		},
 		{
 			"id": "E-7",
 			"name": "Dachbox",
-			"image_url": "",
+			"imageUrl": "",
 			"price": 1368.49,
 			"type": "Exterieur"
 		},
 		{
 			"id": "E-8",
 			"name": "Fahrradträger",
-			"image_url": "",
+			"imageUrl": "",
 			"price": 285.59,
 			"type": "Exterieur"
 		}
