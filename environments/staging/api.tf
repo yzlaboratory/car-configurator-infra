@@ -2,6 +2,23 @@
 resource "aws_apigatewayv2_api" "main" {
   name          = "${var.project_name}-http-api"
   protocol_type = "HTTP"
+
+  cors_configuration {
+    # Erlaube Anfragen von deinem localhost (und später deiner echten Domain)
+    allow_origins = ["http://localhost:4200", "https://${aws_cloudfront_distribution.main.domain_name}"]
+    
+    # Erlaube Standard-Methoden
+    allow_methods = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    
+    # Erlaube Standard-Header
+    allow_headers = ["Content-Type", "Authorization", "X-Amz-Date", "X-Api-Key"]
+    
+    # Erlaube dem Browser, diese Header in der Antwort zu sehen
+    expose_headers = ["Content-Type", "Date", "Content-Length"]
+    
+    # Wie lange (in Sekunden) der Browser das CORS-Ergebnis cachen soll (Preflight)
+    max_age = 300
+  }
 }
 
 resource "aws_apigatewayv2_integration" "alb_integration" {
