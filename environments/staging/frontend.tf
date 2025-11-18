@@ -2,6 +2,12 @@
 # Der Bucket ist privat. Nur CloudFront kann darauf zugreifen.
 resource "aws_s3_bucket" "frontend" {
   bucket = "${var.project_name}-frontend-bucket" # S3-Namen müssen global eindeutig sein
+  
+  force_destroy = true
+
+  tags = {
+    Name = "Angular Frontend"
+  }
 }
 
 # --- 2. CloudFront Origin Access Control (OAC) ---
@@ -24,7 +30,7 @@ resource "aws_cloudfront_distribution" "main" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  default_root_object = "index.html"
+  default_root_object = "browser/index.html"
 
   # Standard-Cache-Verhalten
   default_cache_behavior {
@@ -50,13 +56,13 @@ resource "aws_cloudfront_distribution" "main" {
   custom_error_response {
     error_code            = 403
     response_code         = 200
-    response_page_path    = "/index.html"
+    response_page_path    = "browser/index.html"
     error_caching_min_ttl = 10
   }
   custom_error_response {
     error_code            = 404
     response_code         = 200
-    response_page_path    = "/index.html"
+    response_page_path    = "browser/index.html"
     error_caching_min_ttl = 10
   }
 
