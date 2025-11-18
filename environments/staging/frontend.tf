@@ -30,7 +30,7 @@ resource "aws_cloudfront_distribution" "main" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  default_root_object = "browser/index.html"
+  default_root_object = "index.html"
 
   # Standard-Cache-Verhalten
   default_cache_behavior {
@@ -56,13 +56,13 @@ resource "aws_cloudfront_distribution" "main" {
   custom_error_response {
     error_code            = 403
     response_code         = 200
-    response_page_path    = "browser/index.html"
+    response_page_path    = "/index.html"
     error_caching_min_ttl = 10
   }
   custom_error_response {
     error_code            = 404
     response_code         = 200
-    response_page_path    = "browser/index.html"
+    response_page_path    = "/index.html"
     error_caching_min_ttl = 10
   }
 
