@@ -18,8 +18,9 @@ resource "aws_db_instance" "orders" {
   engine_version              = "17.6"
   instance_class              = "db.t3.micro"
   db_name                     = "ordersdb" # PostgreSQL-Namen dürfen keine Bindestriche haben
-  manage_master_user_password = true
-  username                    = "lumra"
+  # Liest den Benutzernamen und das Passwort aus dem Secrets Manager
+  username             = jsondecode(aws_secretsmanager_secret_version.db_credentials.secret_string)["username"]
+  password             = jsondecode(aws_secretsmanager_secret_version.db_credentials.secret_string)["password"]
   db_subnet_group_name        = aws_db_subnet_group.main.name
   vpc_security_group_ids      = [aws_security_group.rds.id]
   publicly_accessible         = false

@@ -122,3 +122,25 @@ resource "aws_iam_role_policy" "task_permissions2" {
     ]
   })
 }
+
+# Lesezugriff auf das Secret
+resource "aws_iam_policy" "read_db_secret_policy" {
+  name        = "${var.project_name}-read-db-secret-policy"
+  description = "Allow reading the RDS credentials secret"
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect   = "Allow",
+        Action   = "secretsmanager:GetSecretValue",
+        Resource = aws_secretsmanager_secret.db_credentials.arn
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "attach_secret_policy" {
+  role       = aws_iam_role.ecs_task_role.name
+  policy_arn = aws_iam_policy.read_db_secret_policy.arn
+}

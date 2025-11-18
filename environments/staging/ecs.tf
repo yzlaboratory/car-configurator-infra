@@ -189,6 +189,7 @@ resource "aws_ecs_task_definition" "orders" {
           hostPort      = var.container_port
         }
       ]
+      
       logConfiguration = {
         logDriver = "awslogs"
         options = {
@@ -211,6 +212,20 @@ resource "aws_ecs_task_definition" "orders" {
         "retries" : 3,     # How many failures before marking as unhealthy
         "startPeriod" : 60 # Grace period to allow the container to start
       }
+          "environment" : [
+      {
+        "name" : "AWS_REGION",
+        "value" : var.aws_region
+      },
+      {
+        "name" : "DB_HOST",
+        "value" : aws_db_instance.orders.address # Der RDS-Endpunkt
+      },
+      {
+        "name" : "DB_NAME",
+        "value" : aws_db_instance.orders.db_name # Der DB-Name
+      }
+    ]
     }
   ])
 }
