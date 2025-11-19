@@ -44,7 +44,7 @@
 			"name": "21 Zoll Alufelgen Klassik",
 			"tag": "Serienausstattung",
 			"price": 0,
-			"imageUrl": "",
+			"imageUrl": "r-1.png",
 			"size": "21 Zoll"
 		},
 		{
@@ -52,7 +52,7 @@
 			"name": "21 Zoll Alufelgen Sport",
 			"tag": "Exclusive Manufaktur",
 			"price": 547.4,
-			"imageUrl": "",
+			"imageUrl": "r-2.png",
 			"size": "21 Zoll"
 		},
 		{
@@ -60,7 +60,7 @@
 			"name": "21 Zoll Carbonfelgen R",
 			"tag": "Exclusive Manufaktur",
 			"price": 4057.9,
-			"imageUrl": "",
+			"imageUrl": "r-3.png",
 			"size": "21 Zoll"
 		}
 	],
@@ -138,28 +138,28 @@
 		{
 			"id": "E-1",
 			"name": "Ledersitze",
-			"imageUrl": "",
+			"imageUrl": "e-1.png",
 			"price": 1606.5,
 			"type": "Interieur"
 		},
 		{
 			"id": "E-2",
 			"name": "Sitzheizqung",
-			"imageUrl": "",
+			"imageUrl": "e-2.png",
 			"price": 742,
 			"type": "Interieur"
 		},
 		{
 			"id": "E-3",
 			"name": "Interieur-Paket Carbon matt",
-			"imageUrl": "",
+			"imageUrl": "e-3.png",
 			"price": 2103.5,
 			"type": "Interieur"
 		},
 		{
 			"id": "E-4",
 			"name": "Sportlenkrad",
-			"imageUrl": "",
+			"imageUrl": "e-4.png",
 			"price": 1228,
 			"type": "Interieur"
 		},
@@ -167,7 +167,7 @@
 		{
 			"id": "E-5",
 			"name": "High-End Surround Sound-System",
-			"imageUrl": "",
+			"imageUrl": "e-5.png",
 			"price": 3189.2,
 			"type": "Infotainment"
 		},
@@ -175,21 +175,21 @@
 		{
 			"id": "E-6",
 			"name": "Dachträger",
-			"imageUrl": "",
+			"imageUrl": "e-6.png",
 			"price": 595,
 			"type": "Exterieur"
 		},
 		{
 			"id": "E-7",
 			"name": "Dachbox",
-			"imageUrl": "",
+			"imageUrl": "e-7.png",
 			"price": 1368.49,
 			"type": "Exterieur"
 		},
 		{
 			"id": "E-8",
 			"name": "Fahrradträger",
-			"imageUrl": "",
+			"imageUrl": "e-8.png",
 			"price": 285.59,
 			"type": "Exterieur"
 		}
