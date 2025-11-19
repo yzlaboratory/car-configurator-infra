@@ -13,3 +13,8 @@ output "rds_endpoint" {
   value       = aws_db_instance.orders.endpoint
   sensitive   = true
 }
+
+
+output "cdn_assets__domain_name" {
+  value = aws_cloudfront_distribution.assets_cdn.domain_name
+}

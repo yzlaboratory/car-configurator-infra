@@ -5,7 +5,7 @@
 			"id": "C-1",
 			"name": "Weiss",
 			"price": 0,
-			"hex": "#000000"
+			"hex": "#FFFFFF"
 		},
 		{
 			"id": "C-2",
@@ -17,7 +17,7 @@
 			"id": "C-3",
 			"name": "Schwarz",
 			"price": 0,
-			"hex": "#FFFFFF"
+			"hex": "#000000"
 		},
 		{
 			"id": "C-4",
